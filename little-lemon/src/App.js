@@ -82,4 +82,5 @@ function App() {
   );
 }
 
+export { initializeTimes, updateTimes };
 export default App;

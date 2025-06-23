@@ -63,6 +63,7 @@ function BookingForm({
             >
                 <option>Birthday</option>
                 <option>Anniversary</option>
+                <option>Engagement</option>
             </select>
             <input type="submit" value="Make Your reservation" />
         </form>
