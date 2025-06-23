@@ -37,151 +37,347 @@
   }
 }*/
 
-nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Spaces logo and ul */
-    align-items: center; /* Vertically centers logo and ul */
-    padding: 10px 20px;
-    background-color: #fff;
+/* General App Styles */
+.App {
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 30pt;
-    font-weight: 400;
-    color:#495e57;
+    color: #333;
 }
 
-nav img {
-    height: 50px; /* Adjust logo size */
+/* Header (Hero Section) */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    background-color: #495E57;
+    color: #fff;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    max-height: 400px; /* Cap the entire hero section height */
+    overflow: hidden; /* Prevent overflow from large images */
 }
 
-nav ul {
-    display: flex; /* Make ul a flex container for horizontal li */
-    flex-direction: row; /* Ensure li elements are horizontal */
-    list-style: none; /* Remove default bullets */
-    padding: 0;
+.hero h1 {
+    font-size: 48px;
+    color: #F3CC14;
     margin: 0;
 }
 
+.hero h2 {
+    font-size: 32px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 16px;
+    max-width: 50%;
+    line-height: 1.5;
+}
+
+.hero button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    background-color: #F3CC14;
+    color: #495E57;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #e0b814;
+}
+
+.hero img {
+    max-width: 300px; /* Revert to your working max-width */
+    max-height: 300px; /* Cap height */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop and fit */
+    border-radius: 8px;
+}
+
+/* Remove or adjust .hero-image if not needed */
+.hero-image {
+    flex-shrink: 0;
+    max-width: 300px; /* Align with img max-width */
+}
+/* Nav Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Figma-like subtle shadow */
+}
+
+nav img {
+    height: 50px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 40px; /* Consistent spacing */
+}
+
 nav li {
-    margin-left: 40px; /* Space between links */
+    font-size: 16px;
+    color: #495E57;
 }
 
 nav a {
     text-decoration: none;
-    color:#495e57;
+    color: #495E57;
+    transition: color 0.3s;
 }
 
 nav a:hover {
+    color: #F3CC14; /* Yellow highlight on hover */
     text-decoration: underline;
 }
 
+/* Specials Banner */
+.specials-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    background-color: #EDEFEE; /* Light gray */
+}
+
+.specials-banner h2 {
+    font-size: 24px;
+    color: #495E57;
+}
+
+.specials-banner button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    background-color: #495E57;
+    color: #F3CC14;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.specials-banner button:hover {
+    background-color: #3d4f4b; /* Darker green on hover */
+}
+
+/* Specials Cards */
+.specials {
+    display: flex;
+    justify-content: center;
+    gap: 24px; /* Figma 8px grid multiple */
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 16px; /* Style guide requirement */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+    text-align: left;
+    transition: transform 0.3s; /* Hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect */
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #495E57;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #495E57;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.card button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    background-color: #F3CC14;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #e0b814;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 40px 20px;
+    background-color: #EDEFEE;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 24px;
+    color: #495E57;
+    margin-bottom: 20px;
+}
+
+.testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.testimonial-list div {
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-list h3 {
+    font-size: 16px;
+    color: #495E57;
+    margin-bottom: 8px;
+}
+
+.testimonial-list p {
+    font-size: 14px;
+    color: #495E57;
+    margin: 8px 0;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 100px;
+    background-color: #F3CC14;
+    gap: 20px;
+}
+
+.about div {
+    max-width: 50%;
+}
+
+.about h1 {
+    font-size: 48px;
+    color: #495E57;
+    margin: 0;
+}
+
+.about h2 {
+    font-size: 32px;
+    color: #495E57;
+    margin: 0;
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.about img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Footer Styles */
 footer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Spaces logo and ul */
-  align-items: center; /* Vertically centers logo and ul */
-  padding: 10px 20px;
-  background-color: #495e57;
-  color:#fff;
-  font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #495E57;
+    color: #fff;
+    font-size: 14px;
 }
 
-footer img {
-  background-color: #fff;
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
 }
 
-footer ul{
-  list-style: none;
+footer a {
+    color: #F3CC14;
+    text-decoration: none;
 }
 
-footer a{
-  text-decoration: none;
+footer a:hover {
+    text-decoration: underline;
 }
 
-footer a:hover{
-  text-decoration: underline;
-}
-
-main ul:first-of-type{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; /* Spaces logo and ul */
-  align-items: center; /* Vertically centers logo and ul */
-  padding: 10px 10px;
-  color:#fff;
-  background-color: #495e57;
-  font-family: 'Montserrat', sans-serif;
-  list-style: none;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-main ul:nth-of-type(2){
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Spaces logo and ul */
-  align-items: center; /* Vertically centers logo and ul */
-  padding: 10px 20px;
-  font-family: 'Montserrat', sans-serif;
-  list-style: none; /* Remove default bullets */
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-main ul{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; /* Spaces logo and ul */
-  align-items: center; /* Vertically centers logo and ul */
-  padding: 10px 20px;
-  color:#495e57;
-  background-color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  list-style: none;
-}
-
-main ul p:first-of-type{
-  padding-right: 100px;
-}
-
-main img {
-  max-width: 300px;
-}
-
-main h1{
-  color: #F3CC19;
-}
-
-main ul h2{
-  text-align: left;
-}
-
-main h2{
-  text-align: center;
-  color:#495e57;
-  font-family: 'Montserrat', sans-serif;
-}
-
-main ul:nth-of-type(4){
-  background-color:#495e57;
-  color:#fff
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
+    .header, .about {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header div, .about div {
+        max-width: 100%;
+    }
+
+    .header img, .about img {
+        max-width: 80%;
+    }
+
     nav {
-        flex-direction: column; /* Stack logo and ul vertically */
-        align-items: center;
+        flex-direction: column;
+        padding: 20px;
     }
 
     nav ul {
-        flex-direction: column; /* Stack li elements vertically */
-        text-align: center;
+        flex-direction: column;
+        gap: 10px;
     }
 
-    nav li {
-        margin: 10px 0; /* Vertical spacing for stacked links */
+    .specials-banner, .testimonials {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .specials, .testimonial-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card, .testimonial-list div {
+        width: 100%;
+        max-width: 300px;
     }
 }
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Bebas+Neue&display=swap');
