@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -35,4 +35,55 @@
   to {
     transform: rotate(360deg);
   }
+}*/
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Spaces logo and ul */
+    align-items: center; /* Vertically centers logo and ul */
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+nav img {
+    height: 50px; /* Adjust logo size */
+}
+
+nav ul {
+    display: flex; /* Make ul a flex container for horizontal li */
+    flex-direction: row; /* Ensure li elements are horizontal */
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-left: 20px; /* Space between links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack logo and ul vertically */
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack li elements vertically */
+        text-align: center;
+    }
+
+    nav li {
+        margin: 10px 0; /* Vertical spacing for stacked links */
+    }
 }

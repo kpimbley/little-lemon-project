@@ -1,5 +1,5 @@
 function Footer(){
-    return <footer>
+    return (<footer>
         <ul>
             <li>Doormat Navigation</li>
             <li><a href="/home">Home</a></li>
@@ -22,6 +22,7 @@ function Footer(){
             <li><a href="mailto:info@littlelemon.com">Email</a></li>
         </ul>
     </footer>
+    );
 }
 
 export default Footer;
