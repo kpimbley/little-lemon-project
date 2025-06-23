@@ -1,25 +1,27 @@
-import { useState } from 'react';
 import './App.css'; // Reuse existing styles
 
-function BookingForm() {
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('17:00');
-    const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState('Birthday');
-    const [availableTimes, setAvailableTimes] = useState([
-        '17:00',
-        '18:00',
-        '19:00',
-        '20:00',
-        '21:00',
-        '22:00',
-    ]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission (e.g., log or API call)
-        console.log({ date, time, guests, occasion });
+function BookingForm({
+    date,
+    setDate,
+    time,
+    setTime,
+    guests,
+    setGuests,
+    occasion,
+    setOccasion,
+    availableTimes = [], // Default to empty array if undefined
+    dispatch,
+    handleSubmit,
+}) {
+    console.log('setDate prop:', setDate);
+    const handleDateChange = (e) => {
+        const newDate = e.target.value;
+        setDate(newDate);
+        dispatch({ type: 'update', date: newDate }); // Explicit action object
+        console.log('Dispatched date:', newDate); // Debug
     };
+
+    console.log('Available times in BookingForm:', availableTimes); // Debug
 
     return (
         <form
@@ -31,7 +33,7 @@ function BookingForm() {
                 type="date"
                 id="res-date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={handleDateChange}
             />
             <label htmlFor="res-time">Choose time</label>
             <select
