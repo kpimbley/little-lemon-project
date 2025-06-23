@@ -1,5 +1,5 @@
 import './App.css';
-import Logo from './Logo.svg'
+import Logo from './monochrome_logo.png'
 
 function Footer(){
     return (<footer>

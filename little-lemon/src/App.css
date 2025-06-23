@@ -83,8 +83,13 @@ footer {
   justify-content: space-between; /* Spaces logo and ul */
   align-items: center; /* Vertically centers logo and ul */
   padding: 10px 20px;
-  background-color: #fff;
+  background-color: #495e57;
+  color:#fff;
   font-family: 'Montserrat', sans-serif;
+}
+
+footer img {
+  background-color: #fff;
 }
 
 footer ul{
