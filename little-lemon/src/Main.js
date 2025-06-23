@@ -5,6 +5,7 @@ import LemonDessert from './lemondessert.jpg';
 import MarioAdrianA from './Mario_and_Adrian_A.jpg';
 import MarioAdrianB from './Mario_and_Adrian_b.jpg';
 import Card from './Card.js';
+import BookingPage from './BookingPage.js';
 
 function Main() {
     return (
