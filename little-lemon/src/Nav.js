@@ -1,8 +1,9 @@
 import './App.css';
+import Logo from './Logo.svg'
 
 function Nav(){
     return (<nav>
-        <img src="Logo.svg" alt="Little Lemon Logo"></img>
+        <img src={Logo} alt="Little Lemon Logo"></img>
         <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/about">About</a></li>

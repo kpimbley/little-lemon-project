@@ -45,6 +45,10 @@ nav {
     align-items: center; /* Vertically centers logo and ul */
     padding: 10px 20px;
     background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30pt;
+    font-weight: 400;
+    color:#495e57;
 }
 
 nav img {
@@ -60,16 +64,105 @@ nav ul {
 }
 
 nav li {
-    margin-left: 20px; /* Space between links */
+    margin-left: 40px; /* Space between links */
 }
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color:#495e57;
 }
 
 nav a:hover {
     text-decoration: underline;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spaces logo and ul */
+  align-items: center; /* Vertically centers logo and ul */
+  padding: 10px 20px;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer ul{
+  list-style: none;
+}
+
+footer a{
+  text-decoration: none;
+}
+
+footer a:hover{
+  text-decoration: underline;
+}
+
+main ul:first-of-type{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Spaces logo and ul */
+  align-items: center; /* Vertically centers logo and ul */
+  padding: 10px 10px;
+  color:#fff;
+  background-color: #495e57;
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+main ul:nth-of-type(2){
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spaces logo and ul */
+  align-items: center; /* Vertically centers logo and ul */
+  padding: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  list-style: none; /* Remove default bullets */
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+main ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* Spaces logo and ul */
+  align-items: center; /* Vertically centers logo and ul */
+  padding: 10px 20px;
+  color:#495e57;
+  background-color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;
+}
+
+main ul p:first-of-type{
+  padding-right: 100px;
+}
+
+main img {
+  max-width: 300px;
+}
+
+main h1{
+  color: #F3CC19;
+}
+
+main ul h2{
+  text-align: left;
+}
+
+main h2{
+  text-align: center;
+  color:#495e57;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main ul:nth-of-type(4){
+  background-color:#495e57;
+  color:#fff
 }
 
 @media (max-width: 768px) {

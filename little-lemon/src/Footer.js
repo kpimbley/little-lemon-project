@@ -1,5 +1,11 @@
+import './App.css';
+import Logo from './Logo.svg'
+
 function Footer(){
     return (<footer>
+        <ul>
+            <li><img src={Logo} alt="Little Lemon Logo"></img></li>
+        </ul>
         <ul>
             <li>Doormat Navigation</li>
             <li><a href="/home">Home</a></li>
