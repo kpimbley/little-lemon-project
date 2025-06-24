@@ -150,24 +150,6 @@ function Main({
                 <img src={MarioAdrianA} alt="Mario and Adrian" />
                 <img src={MarioAdrianB} alt="Mario and Adrian" />
             </section>
-
-            {/* Booking Form Section */}
-            <section className="booking-section">
-                <h2>Book a Table</h2>
-                <BookingForm
-                    date={date}
-                    setDate={setDate}
-                    time={time}
-                    setTime={setTime}
-                    guests={guests}
-                    setGuests={setGuests}
-                    occasion={occasion}
-                    setOccasion={setOccasion}
-                    availableTimes={availableTimes}
-                    dispatch={dispatch} // Placeholder
-                    handleSubmit={handleSubmitLocal}
-                />
-            </section>
         </main>
     );
 }

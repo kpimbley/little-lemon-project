@@ -44,6 +44,20 @@
     color: #333;
 }
 
+* {
+  border-radius: 16px; /* Or selectively on cards, buttons, images */
+}
+
+.hero, .about, .specials-banner {
+  flex-wrap: wrap;
+  padding: 40px 20px;
+}
+
+.card, .testimonial-list div {
+  width: 100%;
+  max-width: 280px;
+}
+
 /* Header (Hero Section) */
 .hero {
     display: flex;
@@ -203,19 +217,17 @@ nav a:hover {
 }
 
 .card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #495E57;
-    text-transform: uppercase;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #495E57;
+  margin-bottom: 8px;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .card p {
-    font-size: 14px;
-    color: #495E57;
-    line-height: 1.5;
-    margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #495E57;
 }
 
 .card button {
@@ -338,21 +350,197 @@ footer a:hover {
 
 /* Booking Page */
 .booking-page {
-    padding: 40px 100px;
+    padding: 60px 100px;
     background-color: #EDEFEE;
-    text-align: center;
+    color: #495E57;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .booking-page h1 {
-    font-size: 48px;
-    color: #495E57;
-    margin-bottom: 20px;
+    font-size: 36px;
+    color: #F3CC14;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .booking-page p {
     font-size: 16px;
-    color: #333;
-    margin-bottom: 20px;
+    max-width: 600px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/*Confirmation Page*/
+
+.confirmed-booking {
+    padding: 60px 100px;
+    background-color: #EDEFEE;
+    color: #495E57;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    min-height: 60vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.confirmed-booking h1 {
+    font-size: 48px;
+    color: #F3CC14;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-bottom: 10px;
+}
+
+.confirmed-booking p {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.confirmed-booking button {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    background-color: #495E57;
+    color: #F3CC14;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirmed-booking button:hover {
+    background-color: #3d4f4b;
+}
+
+input[type="submit"] {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    background-color: #F3CC14;
+    color: #495E57;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #e0b814;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* adds space between all children */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #f9f9f9;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+form label {
+  font-size: 16px;
+  color: #495E57;
+}
+
+form input,
+form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #495E57;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Center the submit button */
+form button[type="submit"],
+input[type="submit"] {
+  align-self: center;
+  margin-top: 12px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+form button:disabled,
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button,
+input[type="submit"] {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  background-color: #F3CC14;
+  color: #495E57;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s ease-in-out;
+}
+button:active,
+input[type="submit"]:active {
+  background-color: #d4a500;  /* Slightly darker yellow */
+  transform: scale(0.98);     /* Optional: slight "press in" effect */
+}
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #495E57;
+}
+
+h1 {
+  font-size: 40px; /* Matches Regular 40pt */
+}
+
+h2 {
+  font-size: 32px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 65ch; /* Respect 65 characters per line */
+}
+
+button, input[type="submit"] {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  background-color: #F4CE14;
+  color: #495E57;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #e0b814;
 }
 
 /* Responsive Design */
