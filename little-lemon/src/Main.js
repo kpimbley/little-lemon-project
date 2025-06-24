@@ -1,4 +1,3 @@
-import { useReducer, useState } from 'react';
 import Food from './restauranfood.jpg';
 import Salad from './greeksalad.jpg';
 import Bruschetta from './bruschetta.jpg';
@@ -7,34 +6,49 @@ import MarioAdrianA from './Mario_and_Adrian_A.jpg';
 import MarioAdrianB from './Mario_and_Adrian_b.jpg';
 import Card from './Card.js';
 import BookingForm from './BookingForm.js';
+import { useNavigate } from 'react-router-dom';
 
-function updateTimes(state, action) {
-    // For now, return the same times regardless of date
-    console.log('Current state:',state);
-    switch (action.type) {
-        case 'update':
-            console.log('Updating times for date:', action.date); // Debug
-            return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']; // Same times for now
-        default:
-            return state;
-    }
-}
+function Main({
+    date,
+    setDate,
+    time,
+    setTime,
+    guests,
+    setGuests,
+    occasion,
+    setOccasion,
+    availableTimes,
+    dispatch, // Placeholder
+    handleSubmit,
+}) {
+    console.log('Rendering Main, availableTimes:', availableTimes);
+    const navigate = useNavigate();
 
-function initializeTimes() {
-    // Initial state for available times
-    return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-}
+    const handleSubmitLocal = (e) => {
+        if (e) e.preventDefault();
+        console.log('Main handleSubmitLocal called with event:', e);
+        handleSubmit(e); // Forward event to App.js
+        const formData = { date, time, guests, occasion };
+        submitForm(formData); // Ensure submission logic is called
+    };
 
-function Main(props) {
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('17:00');
-    const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState('Birthday');
-    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log({ date, time, guests, occasion });
+    const submitForm = (formData) => {
+        console.log('Submitting form data:', formData);
+        // Mock submitAPI function (replace with actual API call)
+        const submitAPI = () => Promise.resolve(true); // Assume true for now
+        submitAPI(formData)
+            .then(success => {
+                console.log('submitAPI resolved with success:', success);
+                if (success) {
+                    console.log('Attempting navigation to /confirmed');
+                    navigate('/confirmed', { replace: true }); // Navigate on success
+                } else {
+                    console.log('Booking failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error in submitAPI:', error);
+            });
     };
 
     return (
@@ -146,8 +160,8 @@ function Main(props) {
                     occasion={occasion}
                     setOccasion={setOccasion}
                     availableTimes={availableTimes}
-                    dispatch={dispatch}
-                    handleSubmit={handleSubmit}
+                    dispatch={dispatch} // Placeholder
+                    handleSubmit={handleSubmitLocal}
                 />
             </section>
         </main>

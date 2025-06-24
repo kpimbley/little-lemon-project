@@ -1,5 +1,4 @@
-import './App.css'; // Reuse existing styles
-
+// src/BookingForm.js
 function BookingForm({
     date,
     setDate,
@@ -9,24 +8,29 @@ function BookingForm({
     setGuests,
     occasion,
     setOccasion,
-    availableTimes = [], // Default to empty array if undefined
-    dispatch,
+    availableTimes = [],
+    dispatch, // Ignore if not used
     handleSubmit,
 }) {
-    console.log('setDate prop:', setDate);
+    console.log('Rendering BookingForm, availableTimes:', availableTimes);
+
     const handleDateChange = (e) => {
         const newDate = e.target.value;
         setDate(newDate);
-        dispatch({ type: 'update', date: newDate }); // Explicit action object
-        console.log('Dispatched date:', newDate); // Debug
+        console.log('Date changed to:', newDate);
     };
 
-    console.log('Available times in BookingForm:', availableTimes); // Debug
+    const handleSubmitLocal = (e) => {
+        if (e) e.preventDefault();
+        console.log('BookingForm handleSubmitLocal called with event:', e);
+        const formData = { date, time, guests, occasion };
+        handleSubmit(formData); // Pass form data to trigger submission chain
+    };
 
     return (
         <form
             style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmitLocal}
         >
             <label htmlFor="res-date">Choose date</label>
             <input
@@ -41,9 +45,13 @@ function BookingForm({
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
             >
-                {availableTimes.map((timeOption) => (
-                    <option key={timeOption}>{timeOption}</option>
-                ))}
+                {availableTimes.length > 0 ? (
+                    availableTimes.map((timeOption) => (
+                        <option key={timeOption}>{timeOption}</option>
+                    ))
+                ) : (
+                    <option disabled>No times available</option>
+                )}
             </select>
             <label htmlFor="guests">Number of guests</label>
             <input
@@ -63,7 +71,6 @@ function BookingForm({
             >
                 <option>Birthday</option>
                 <option>Anniversary</option>
-                <option>Engagement</option>
             </select>
             <input type="submit" value="Make Your reservation" />
         </form>
