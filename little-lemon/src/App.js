@@ -23,6 +23,19 @@ async function initializeTimes() {
     }
 }
 
+async function updateTimes(state, action) {
+    if (action.type === 'update') {
+        try {
+            const availableTimes = await getFetchAPI()(action.date);
+            return availableTimes;
+        } catch (error) {
+            console.error('updateTimes error:', error);
+            return state; // fallback to previous state if fetch fails
+        }
+    }
+    return state;
+}
+
 function App() {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('17:00');
@@ -61,12 +74,11 @@ function App() {
 
     const handleSubmit = (eOrData) => {
         console.log('App handleSubmit called with:', eOrData);
+        // Simply forward to the next level, let Main.js handle submission
         if (eOrData && typeof eOrData.preventDefault === 'function') {
             eOrData.preventDefault();
-        } else if (eOrData && typeof eOrData === 'object') {
-            console.log('Processing form data in App:', eOrData);
-            // Optionally forward to submission logic, but let Main.js handle it
         }
+        // No additional processing, rely on Main.js
     };
 
     console.log('App availableTimes:', availableTimes);
@@ -153,5 +165,5 @@ function App() {
     return <RouterProvider router={router} />;
 }
 
-export { initializeTimes };
+export { initializeTimes, updateTimes };
 export default App;

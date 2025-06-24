@@ -23,8 +23,7 @@ function BookingForm({
     const handleSubmitLocal = (e) => {
         if (e) e.preventDefault();
         console.log('BookingForm handleSubmitLocal called with event:', e);
-        const formData = { date, time, guests, occasion };
-        handleSubmit(formData); // Pass form data to trigger submission chain
+        handleSubmit(e); // Pass event to trigger the chain
     };
 
     return (

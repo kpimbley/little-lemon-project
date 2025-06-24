@@ -27,23 +27,27 @@ function Main({
     const handleSubmitLocal = (e) => {
         if (e) e.preventDefault();
         console.log('Main handleSubmitLocal called with event:', e);
-        handleSubmit(e); // Forward event to App.js
         const formData = { date, time, guests, occasion };
-        submitForm(formData); // Ensure submission logic is called
+        handleSubmit(formData); // Pass form data to App.js
+        submitForm(formData); // Ensure submission logic is triggered here
     };
 
     const submitForm = (formData) => {
         console.log('Submitting form data:', formData);
         // Mock submitAPI function (replace with actual API call)
-        const submitAPI = () => Promise.resolve(true); // Assume true for now
+        const submitAPI = (formData) => {
+            console.log('submitAPI received:', formData);
+            return Promise.resolve(true); // simulate success
+        };
+
         submitAPI(formData)
             .then(success => {
                 console.log('submitAPI resolved with success:', success);
                 if (success) {
-                    console.log('Attempting navigation to /confirmed');
-                    navigate('/confirmed', { replace: true }); // Navigate on success
+                console.log('Navigating to /confirmed');
+                navigate('/confirmed', { replace: true });
                 } else {
-                    console.log('Booking failed');
+                console.log('Booking failed');
                 }
             })
             .catch(error => {

@@ -34,4 +34,13 @@ describe('Booking Reducer Functions', () => {
     expect(result).toContain('22:00');
     expect(window.fetchAPI).toHaveBeenCalledWith('2025-06-24');
   });
+
+  test('updateTimes falls back to previous state on fetch error', async () => {
+  const currentState = ['17:00', '18:00'];
+  const action = { type: 'update', date: '2025-06-24' };
+  window.fetchAPI.mockRejectedValue(new Error('Network error'));
+
+  const result = await updateTimes(currentState, action);
+  expect(result).toEqual(currentState); // fallback to previous state
+  });
 });

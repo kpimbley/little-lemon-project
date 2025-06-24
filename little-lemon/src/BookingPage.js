@@ -1,5 +1,6 @@
 import './App.css';
 import BookingForm from './BookingForm.js';
+import { useNavigate } from 'react-router-dom';
 
 function BookingPage({
     date,
@@ -12,8 +13,21 @@ function BookingPage({
     setOccasion,
     availableTimes,
     dispatch,
-    handleSubmit,
 }) {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        if (e) e.preventDefault();
+        const formData = { date, time, guests, occasion };
+        const submitAPI = (data) => Promise.resolve(true);
+        submitAPI(formData).then(success => {
+            if (success) {
+                console.log('Navigating to /confirmed');
+                navigate('/confirmed');
+            }
+        });
+    };
+
     return (
         <main>
             <section className="booking-page">
